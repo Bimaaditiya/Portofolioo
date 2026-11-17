@@ -940,6 +940,51 @@ article p {
   border-color: var(--primary-hover);
 }
 
+.project-btn-disabled {
+  background: var(--bg-card-alt);
+  color: var(--text-light);
+  border: 1px dashed var(--border-color);
+  cursor: default;
+  font-size: 0.85rem;
+  padding: 0.85rem 1.1rem;
+}
+
+.project-btn-disabled:hover {
+  background: var(--bg-card-alt);
+  color: var(--text-light);
+  border-color: var(--border-color);
+  box-shadow: none;
+  transform: none;
+}
+
+.project-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.project-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  display: inline-block;
+}
+
+.badge-featured {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid var(--primary-border);
+}
+
+.badge-skripsi {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
 /* CONTACT SECTION */
 
 #contact {
