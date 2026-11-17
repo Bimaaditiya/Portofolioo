@@ -942,16 +942,17 @@ article p {
 
 .project-btn-disabled {
   background: var(--bg-card-alt);
-  color: var(--text-light);
-  border: 1px dashed var(--border-color);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
   cursor: default;
   font-size: 0.85rem;
   padding: 0.85rem 1.1rem;
+  user-select: none;
 }
 
 .project-btn-disabled:hover {
   background: var(--bg-card-alt);
-  color: var(--text-light);
+  color: var(--text-muted);
   border-color: var(--border-color);
   box-shadow: none;
   transform: none;
