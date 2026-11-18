@@ -35,10 +35,18 @@
 }
 
 @media screen and (max-width: 900px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    max-width: 550px;
-    margin: 2rem auto 0;
+  .projects-carousel-wrapper {
+    padding: 0;
+  }
+
+  .carousel-nav-btn {
+    display: none;
+  }
+
+  .projects-slider .project-card {
+    flex: 0 0 84%;
+    max-width: 330px;
+    min-width: 260px;
   }
 
   .about-containers {
@@ -143,6 +151,21 @@
 
   .project-img-wrapper {
     height: 190px;
+  }
+
+  .projects-slider {
+    gap: 1.25rem;
+    padding: 0.85rem 0.25rem 1.25rem;
+  }
+
+  .projects-slider .project-card {
+    flex: 0 0 88%;
+    max-width: 295px;
+    padding: 1.35rem 1.15rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
   }
 
   .contact-info-upper-container {
