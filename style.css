@@ -867,17 +867,159 @@ article p {
   font-style: italic;
 }
 
-/* PROJECTS SECTION */
+/* PROJECTS SECTION - HORIZONTAL SCROLL CAROUSEL */
 
 #projects {
   position: relative;
+  overflow: visible;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+.projects-carousel-wrapper {
+  position: relative;
+  width: 100%;
   margin-top: 2rem;
+}
+
+.projects-slider {
+  display: flex;
+  gap: 1.75rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 1.25rem 0.5rem 1.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-border) transparent;
+  cursor: grab;
+}
+
+.projects-slider:active {
+  cursor: grabbing;
+}
+
+/* Custom WebKit Scrollbar */
+.projects-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-slider::-webkit-scrollbar-track {
+  background: var(--bg-card-alt);
+  border-radius: 99px;
+  margin: 0 1rem;
+}
+
+.projects-slider::-webkit-scrollbar-thumb {
+  background: var(--primary-border);
+  border-radius: 99px;
+  transition: background 0.3s ease;
+}
+
+.projects-slider::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+.projects-slider .project-card {
+  flex: 0 0 360px;
+  max-width: 360px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Navigation Buttons */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-nav-btn:hover {
+  background: var(--primary);
+  color: var(--text-white);
+  border-color: var(--primary);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: var(--shadow-btn);
+}
+
+.carousel-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-nav-btn.prev-btn {
+  left: -24px;
+}
+
+.carousel-nav-btn.next-btn {
+  right: -24px;
+}
+
+.carousel-nav-btn.btn-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Carousel Footer, Dots & Hint */
+.carousel-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-color);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: var(--primary-border);
+}
+
+.carousel-dot.active {
+  width: 28px;
+  border-radius: 99px;
+  background: var(--primary);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.carousel-hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  user-select: none;
 }
 
 .color-container {
