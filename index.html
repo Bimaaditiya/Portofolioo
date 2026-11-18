@@ -451,10 +451,23 @@
     <section id="projects">
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="projects-grid">
+      
+      <div class="projects-carousel-wrapper">
+        <!-- Navigation Buttons -->
+        <button
+          class="carousel-nav-btn prev-btn"
+          id="projectPrevBtn"
+          aria-label="Projek sebelumnya"
+          title="Geser ke kiri"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="projects-slider" id="projectsSlider">
           <!-- Project 1: Bims PhotoBooth -->
-          <div class="details-container color-container">
+          <div class="details-container color-container project-card">
             <div class="project-img-wrapper">
               <img
                 src="./assets/photobooth.jpg"
@@ -487,7 +500,7 @@
           </div>
 
           <!-- Project 2: Perpustakaan Digital (Perpus Metik) -->
-          <div class="details-container color-container">
+          <div class="details-container color-container project-card">
             <div class="project-img-wrapper">
               <img
                 src="./assets/perpusmetik.png"
@@ -516,7 +529,7 @@
           </div>
 
           <!-- Project 3: Travel Web -->
-          <div class="details-container color-container">
+          <div class="details-container color-container project-card">
             <div class="project-img-wrapper">
               <img
                 src="./assets/pw1.png"
@@ -549,7 +562,7 @@
           </div>
 
           <!-- Project 4: Cargo Express Web -->
-          <div class="details-container color-container">
+          <div class="details-container color-container project-card">
             <div class="project-img-wrapper">
               <img
                 src="./assets/pw2.png"
@@ -582,7 +595,7 @@
           </div>
 
           <!-- Project 5: Linktree -->
-          <div class="details-container color-container">
+          <div class="details-container color-container project-card">
             <div class="project-img-wrapper">
               <img
                 src="./assets/Linktree.png"
@@ -615,7 +628,7 @@
           </div>
 
           <!-- Project 6: First Portfolio -->
-          <div class="details-container color-container">
+          <div class="details-container color-container project-card">
             <div class="project-img-wrapper">
               <img
                 src="./assets/Portofolio1.png"
@@ -647,6 +660,31 @@
             </div>
           </div>
         </div>
+
+        <button
+          class="carousel-nav-btn next-btn"
+          id="projectNextBtn"
+          aria-label="Projek selanjutnya"
+          title="Geser ke kanan"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Carousel Pagination Dots & Swipe Hint -->
+      <div class="carousel-footer">
+        <div class="carousel-dots" id="carouselDots" aria-label="Navigasi slide projek"></div>
+        <p class="carousel-hint">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:4px;">
+            <polyline points="17 11 21 7 17 3"></polyline>
+            <line x1="21" y1="7" x2="9" y2="7"></line>
+            <polyline points="7 13 3 17 7 21"></polyline>
+            <line x1="3" y1="17" x2="15" y2="17"></line>
+          </svg>
+          Geser ke samping untuk melihat projek lainnya
+        </p>
       </div>
     </section>
 
