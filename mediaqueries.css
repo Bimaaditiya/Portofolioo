@@ -168,22 +168,51 @@
     font-size: 1.2rem;
   }
 
-  .contact-info-upper-container {
-    flex-direction: column;
-    align-items: stretch;
+  .contact-icons-container {
+    grid-template-columns: repeat(5, auto);
     gap: 0.75rem;
-    padding: 1rem 1.25rem;
-    width: 100%;
+    padding: 1.25rem 1rem;
+    border-radius: 1.5rem;
+    width: fit-content;
     box-sizing: border-box;
   }
 
-  .contact-info-container {
-    padding: 0.25rem 0;
+  .contact-icon-btn {
+    width: 3.1rem;
+    height: 3.1rem;
   }
 
-  .contact-info-container p {
-    font-size: 0.95rem;
-    word-break: break-all;
+  .contact-icon-btn svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .collab-form-container {
+    padding: 1.75rem 1.25rem;
+    border-radius: 1.35rem;
+    margin: 2.5rem auto 1rem;
+    width: 100%;
+  }
+
+  .collab-title {
+    font-size: 1.45rem;
+  }
+
+  .collab-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-submit-wrapper {
+    justify-content: stretch;
+  }
+
+  .btn-collab-submit {
+    width: 100%;
   }
 
   footer .nav-links {
@@ -210,5 +239,20 @@
 
   .logo {
     font-size: 1.6rem;
+  }
+
+  .contact-icons-container {
+    gap: 0.5rem;
+    padding: 1rem 0.65rem;
+  }
+
+  .contact-icon-btn {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .contact-icon-btn svg {
+    width: 1.75rem;
+    height: 1.75rem;
   }
 }
