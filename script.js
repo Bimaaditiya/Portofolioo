@@ -158,4 +158,90 @@ document.addEventListener("DOMContentLoaded", function () {
       slider.scrollLeft = scrollLeftPos - walk;
     });
   }
+
+  // Collaboration Contact Form Handler (Email to Bima.aditiya30@gmail.com)
+  const collabForm = document.getElementById("collabForm");
+  const submitBtn = document.getElementById("collabSubmitBtn");
+  const statusDiv = document.getElementById("collabStatus");
+
+  if (collabForm) {
+    collabForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const btnText = submitBtn.querySelector(".btn-text");
+      const originalText = btnText ? btnText.textContent : "Kirim Pesan";
+      submitBtn.disabled = true;
+      if (btnText) btnText.textContent = "Mengirim...";
+
+      statusDiv.style.display = "none";
+      statusDiv.className = "collab-status";
+
+      const nameVal = document.getElementById("collabName").value.trim();
+      const emailVal = document.getElementById("collabEmail").value.trim();
+      const categoryVal = document.getElementById("collabCategory").value;
+      const subjectVal = document.getElementById("collabSubject").value.trim() || "Pesan Kolaborasi Portofolio";
+      const messageVal = document.getElementById("collabMessage").value.trim();
+
+      const payload = {
+        name: nameVal,
+        email: emailVal,
+        kategori_kolaborasi: categoryVal,
+        subjek: subjectVal,
+        pesan: messageVal,
+        _subject: `[Kolaborasi Portofolio] ${subjectVal} - ${nameVal}`,
+        _template: "table",
+        _captcha: "false"
+      };
+
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/Bima.aditiya30@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          collabForm.reset();
+          statusDiv.className = "collab-status status-success";
+          statusDiv.innerHTML = `
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div>
+              <strong>Pesan Berhasil Terkirim!</strong><br />
+              Terima kasih, pesan Anda telah terkirim ke email saya (Bima.aditiya30@gmail.com). Saya akan segera menghubungi Anda kembali.
+            </div>
+          `;
+          statusDiv.style.display = "flex";
+        } else {
+          throw new Error("Gagal mengirim via server");
+        }
+      } catch (err) {
+        const mailtoUrl = `mailto:Bima.aditiya30@gmail.com?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(
+          `Nama: ${nameVal}\nEmail: ${emailVal}\nJenis Kolaborasi: ${categoryVal}\nSubjek: ${subjectVal}\n\nPesan:\n${messageVal}`
+        )}`;
+        statusDiv.className = "collab-status status-error";
+        statusDiv.innerHTML = `
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <div>
+            <strong>Koneksi bermasalah saat mengirim online.</strong><br />
+            Silakan kirim langsung via aplikasi email Anda:
+            <a href="${mailtoUrl}" style="text-decoration: underline; font-weight: 600; color: inherit; display: inline-block; margin-top: 4px;">Klik di sini untuk buka email otomatis</a>
+          </div>
+        `;
+        statusDiv.style.display = "flex";
+      } finally {
+        submitBtn.disabled = false;
+        if (btnText) btnText.textContent = originalText;
+      }
+    });
+  }
 });
